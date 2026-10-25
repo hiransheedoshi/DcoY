@@ -67,6 +67,7 @@ interface ExecutiveMetrics {
   };
 }
 
+// Executive Dashboard - Fixed duplicate section issue
 export const ExecutiveDashboard: React.FC = () => {
   const [metrics, setMetrics] = useState<ExecutiveMetrics | null>(null);
   const [loading, setLoading] = useState(true);
