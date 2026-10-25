@@ -1,0 +1,391 @@
+@import "../../design-system/src/theme/dcoy.css";
+
+:root,
+[data-theme="dark"] {
+  --dcoy-color-bg-primary: 220 20% 4%; /* #0a0b0d range */
+  --dcoy-color-surface: 220 20% 6%;
+  --dcoy-color-card: 220 20% 8%;
+  --dcoy-color-card-elevated: 220 20% 12%;
+  
+  --dcoy-color-primary: 37 92% 55%; /* Amber (#f5a623) */
+  --dcoy-color-secondary: 186 100% 50%; /* Cyan (#00e5ff) */
+  --dcoy-color-accent: 186 100% 50%; /* Cyan */
+  --dcoy-color-border: 220 20% 15%;
+  --dcoy-color-text-primary: 0 0% 100%;
+  --dcoy-color-text-secondary: 220 15% 80%;
+  --dcoy-color-muted: 220 10% 50%;
+  
+  --dcoy-shadow-glow: 0 0 12px hsla(37, 92%, 55%, 0.15), 0 0 1px hsla(37, 92%, 55%, 0.35);
+  --dcoy-shadow-glow-cyan: 0 0 12px hsla(186, 100%, 50%, 0.15), 0 0 1px hsla(186, 100%, 50%, 0.35);
+}
+
+/* Faceted / clipped-corner style for honeycomb design */
+.faceted-panel {
+  clip-path: polygon(
+    0 12px, 
+    12px 0, 
+    calc(100% - 12px) 0, 
+    100% 12px, 
+    100% calc(100% - 12px), 
+    calc(100% - 12px) 100%, 
+    12px 100%, 
+    0 calc(100% - 12px)
+  );
+  border: 1px solid hsla(220, 20%, 15%, 0.5);
+  background-color: hsl(220, 20% 8%);
+  position: relative;
+}
+
+/* Hex grid overlay */
+.hex-grid-overlay {
+  background-image: radial-gradient(rgba(245, 166, 35, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.login-honeycomb-fallback {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at 16% 24%, rgba(245, 166, 35, 0.22) 0 4.2%, transparent 4.5%),
+    radial-gradient(circle at 74% 18%, rgba(0, 229, 255, 0.16) 0 3.8%, transparent 4.2%),
+    radial-gradient(circle at 84% 68%, rgba(245, 166, 35, 0.18) 0 4.5%, transparent 4.9%),
+    radial-gradient(circle at 32% 78%, rgba(0, 229, 255, 0.13) 0 4%, transparent 4.5%),
+    linear-gradient(30deg, transparent 0 47%, rgba(30, 41, 59, 0.66) 48% 52%, transparent 53% 100%),
+    linear-gradient(150deg, transparent 0 47%, rgba(30, 41, 59, 0.58) 48% 52%, transparent 53% 100%),
+    linear-gradient(90deg, transparent 0 47%, rgba(30, 41, 59, 0.46) 48% 52%, transparent 53% 100%);
+  background-size:
+    560px 360px,
+    520px 420px,
+    600px 440px,
+    480px 360px,
+    84px 48px,
+    84px 48px,
+    84px 48px;
+  background-position:
+    0 0,
+    120px 40px,
+    40px 90px,
+    180px 20px,
+    0 0,
+    0 0,
+    42px 24px;
+}
+
+.login-honeycomb-fallback::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0 46%, rgba(10, 11, 13, 0.62) 100%);
+  pointer-events: none;
+}
+
+/* Reset index html default center settings */
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  text-align: left !important;
+  border-inline: none !important;
+  min-height: 100vh !important;
+  display: block !important;
+  background-color: hsl(220 20% 4%) !important;
+  color: #fff !important;
+}
+
+/* 3D-styled Nav Icons, Panels, and Tiles */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.nav-icon-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-block;
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.9)) drop-shadow(2px 2px 0 rgba(245, 166, 35, 0.14));
+}
+
+.nav-btn-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 3D active state for nav items */
+.nav-btn-3d.active-3d-amber {
+  transform: translateZ(4px) rotateY(-5deg);
+  box-shadow: 
+    -1px 1px 0px #f5a623, 
+    -2px 2px 0px #f5a623,
+    0 10px 15px rgba(0,0,0,0.5);
+  border: 1px solid #f5a623 !important;
+  background-color: rgba(245, 166, 35, 0.15) !important;
+}
+
+.nav-btn-3d.active-3d-cyan {
+  transform: translateZ(4px) rotateY(-5deg);
+  box-shadow: 
+    -1px 1px 0px #00e5ff, 
+    -2px 2px 0px #00e5ff,
+    0 10px 15px rgba(0,0,0,0.5);
+  border: 1px solid #00e5ff !important;
+  background-color: rgba(0, 229, 255, 0.15) !important;
+}
+
+/* Hover/active transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-btn-3d:hover {
+    transform: translateY(-2px) translateZ(8px) rotateX(4deg) rotateY(-4deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .nav-btn-3d:hover .nav-icon-3d {
+    transform: translateZ(6px);
+  }
+  .nav-btn-3d:active {
+    transform: translateY(1px) translateZ(-4px);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
+  }
+}
+
+/* 3D faceted elevation styles for Overview KPI tiles and Deception honeypots */
+.tile-3d-elevation {
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hex-depth-face {
+  opacity: 0.75;
+}
+
+.hex-facet-highlight {
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tile-3d-elevation:hover {
+    transform: translateY(-4px) translateZ(12px) scale(1.02);
+    box-shadow: 
+      0 12px 24px rgba(0,0,0,0.6),
+      0 0 20px rgba(0, 229, 255, 0.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-btn-3d,
+  .nav-icon-3d,
+  .tile-3d-elevation {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .animate-pulse,
+  .animate-ping,
+  .animate-spin {
+    animation: none !important;
+  }
+}
+
+/* Universal Uniform Scrollbar Design System */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(0, 229, 255, 0.45) rgba(8, 12, 20, 0.6);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(8, 12, 20, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.4);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 4px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.75);
+  border-color: rgba(0, 229, 255, 0.6);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(8, 12, 20, 0.8);
+}
+
+.scrollbar-thin::-webkit-scrollbar,
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track,
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(8, 12, 20, 0.6);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb,
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.4);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover,
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.55);
+  border-color: rgba(0, 229, 255, 0.4);
+}
+
+/* Honeycomb theme elements */
+.sidebar-honeycomb-bg {
+  position: relative;
+}
+.sidebar-honeycomb-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 18L28 2L56 18L56 50Z M28 66L28 100 M0 18L28 34L56 18 M0 50L28 66L56 50 M0 100L28 84L56 100' stroke='rgba(255,255,255,0.015)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-size: 28px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.faceted-panel-status {
+  clip-path: polygon(
+    0 8px, 
+    8px 0, 
+    calc(100% - 8px) 0, 
+    100% 8px, 
+    100% calc(100% - 8px), 
+    calc(100% - 8px) 100%, 
+    8px 100%, 
+    0 calc(100% - 8px)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(17, 24, 39, 0.4);
+}
+
+.group-label-tick {
+  display: inline-block;
+  width: 6px;
+  height: 9px;
+  background-color: currentColor;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-slow {
+    animation: none !important;
+  }
+}
+
+.page-header-glass {
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.02) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 229, 255, 0.02) 100%), rgba(6, 9, 15, 0.65) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 1.25rem 2rem !important;
+  margin-top: -2rem !important;
+  margin-left: -2rem !important;
+  margin-right: -2rem !important;
+  margin-bottom: 2rem !important;
+  border-radius: 0 0 1rem 1rem !important;
+  z-index: 10;
+  position: relative;
+}
+
+@keyframes telemetry-scan {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.animate-telemetry-scan {
+  animation: telemetry-scan 6s linear infinite;
+}
+
+@keyframes breathing-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.45));
+    opacity: 0.75;
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(239, 68, 68, 0.95));
+    opacity: 1;
+  }
+}
+
+.animate-breathing-glow {
+  animation: breathing-glow 3.5s ease-in-out infinite !important;
+}
+
+@keyframes compromise-pulse {
+  0% {
+    stroke-dashoffset: 60;
+  }
+  100% {
+    stroke-dashoffset: -520;
+  }
+}
+
+@keyframes waypoint-flash {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 1px currentColor);
+  }
+  15% {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 8px currentColor);
+    stroke-width: 2.5;
+  }
+  30% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 1px currentColor);
+  }
+}
+
+.animate-waypoint-flash {
+  animation: waypoint-flash 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes waveform-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathing-glow,
+  .animate-waypoint-flash {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+
+
+
