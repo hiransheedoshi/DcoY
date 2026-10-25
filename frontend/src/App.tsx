@@ -15,7 +15,6 @@ import { PlatformHealth } from "./views/PlatformHealth";
 import { ExecutiveDashboard } from "./views/ExecutiveDashboard";
 import { NavHexagon } from "./components/NavHexagon";
 import { GlassPanel } from "./components/GlassPanel";
-import { ThemeProvider } from "./contexts/ThemeContext";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
 
 import {
