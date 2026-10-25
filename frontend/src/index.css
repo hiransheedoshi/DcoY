@@ -1,7 +1,8 @@
 @import "../../design-system/src/theme/dcoy.css";
 
 :root,
-[data-theme="dark"] {
+[data-theme="dark"],
+.dark {
   --dcoy-color-bg-primary: 220 20% 4%; /* #0a0b0d range */
   --dcoy-color-surface: 220 20% 6%;
   --dcoy-color-card: 220 20% 8%;
@@ -17,6 +18,71 @@
   
   --dcoy-shadow-glow: 0 0 12px hsla(37, 92%, 55%, 0.15), 0 0 1px hsla(37, 92%, 55%, 0.35);
   --dcoy-shadow-glow-cyan: 0 0 12px hsla(186, 100%, 50%, 0.15), 0 0 1px hsla(186, 100%, 50%, 0.35);
+}
+
+/* Light Mode */
+.light {
+  --dcoy-color-bg-primary: 0 0% 98%; /* #fafafa */
+  --dcoy-color-surface: 0 0% 96%;
+  --dcoy-color-card: 0 0% 100%;
+  --dcoy-color-card-elevated: 0 0% 100%;
+  
+  --dcoy-color-primary: 37 92% 45%; /* Darker Amber for light mode */
+  --dcoy-color-secondary: 186 100% 35%; /* Darker Cyan for light mode */
+  --dcoy-color-accent: 186 100% 35%;
+  --dcoy-color-border: 220 10% 85%;
+  --dcoy-color-text-primary: 220 20% 10%;
+  --dcoy-color-text-secondary: 220 15% 30%;
+  --dcoy-color-muted: 220 10% 50%;
+  
+  --dcoy-shadow-glow: 0 0 12px hsla(37, 92%, 45%, 0.2), 0 0 1px hsla(37, 92%, 45%, 0.4);
+  --dcoy-shadow-glow-cyan: 0 0 12px hsla(186, 100%, 35%, 0.2), 0 0 1px hsla(186, 100%, 35%, 0.4);
+}
+
+/* Light mode background override */
+.light #root {
+  background-color: hsl(0 0% 98%) !important;
+  color: hsl(220 20% 10%) !important;
+}
+
+/* Light mode glass panel adjustments */
+.light .bg-\[\#030305\] {
+  background-color: hsl(0 0% 98%) !important;
+}
+
+.light .text-white {
+  color: hsl(220 20% 10%) !important;
+}
+
+.light .text-gray-300,
+.light .text-gray-400,
+.light .text-gray-500 {
+  color: hsl(220 15% 40%) !important;
+}
+
+.light .border-white\/\[0\.03\],
+.light .border-white\/\[0\.08\],
+.light .border-gray-800 {
+  border-color: hsl(220 10% 85%) !important;
+}
+
+/* Light mode scrollbar */
+.light * {
+  scrollbar-color: rgba(37, 99, 235, 0.4) rgba(229, 231, 235, 0.6);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: rgba(229, 231, 235, 0.6);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.4);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.6);
+  border-color: rgba(37, 99, 235, 0.4);
 }
 
 /* Faceted / clipped-corner style for honeycomb design */

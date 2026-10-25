@@ -15,6 +15,8 @@ import { PlatformHealth } from "./views/PlatformHealth";
 import { ExecutiveDashboard } from "./views/ExecutiveDashboard";
 import { NavHexagon } from "./components/NavHexagon";
 import { GlassPanel } from "./components/GlassPanel";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
 
 import {
   Shield,
@@ -739,6 +741,7 @@ export const App: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4 text-xs font-semibold font-mono">
+            <ThemeSwitcher />
             <span className="text-gray-500 font-mono">IST TIME: {istTime || "00:00:00"}</span>
             {telemetryStatus === "connected" && (
               <span className="flex items-center gap-1.5 text-green-400 bg-green-950/20 border border-green-500/20 px-2 py-0.5 rounded text-[10px] tracking-wider uppercase font-bold">

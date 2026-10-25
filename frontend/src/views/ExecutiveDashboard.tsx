@@ -378,8 +378,6 @@ export const ExecutiveDashboard: React.FC = () => {
             )}
           </div>
         </GlassPanel>
-        </div>
-
       </div>
 
       {/* Downside: Distribution Metrics & AI Posture Summaries */}
